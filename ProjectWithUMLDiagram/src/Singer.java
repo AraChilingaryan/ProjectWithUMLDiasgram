@@ -32,7 +32,7 @@ public class Singer extends Person{
         this.designation = designation;
     }
 
-    public String bandName() {
+    public String getBandName() {
         return bandName;
     }
 

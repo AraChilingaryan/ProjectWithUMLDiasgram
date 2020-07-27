@@ -32,11 +32,11 @@ public class Dancer extends Person{
         this.designation = designation;
     }
 
-    public String groupName() {
+    public String getGroupName() {
         return groupName;
     }
 
-    public void setGroupNameName(String groupName) {
+    public void setGroupName(String groupName) {
         this.groupName = groupName;
     }
 

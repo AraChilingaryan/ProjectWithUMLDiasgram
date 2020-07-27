@@ -22,4 +22,15 @@ public class Person {
     public void setDesignation(String designation) {
         this.designation = designation;
     }
+
+    private void learn(){
+
+    }
+
+    private void eat(){
+
+    }
+    private void walk(){
+
+    }
 }

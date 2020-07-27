@@ -1,43 +1,43 @@
-public class Dancer extends Person{
+public class Singer extends Person{
     private String name;
     private String designation;
-    private String groupName;
+    private String bandName;
 
-    public Dancer(){
+    public Singer(){
 
     }
 
-    public Dancer(String name, String designation, String groupName) {
+    public Singer(String name, String designation, String bandName) {
         super(name, designation);
-        this.groupName = groupName;
+        this.bandName = bandName;
     }
 
-    @Override
+
     public String getName() {
         return name;
     }
 
-    @Override
+
     public void setName(String name) {
         this.name = name;
     }
 
-    @Override
+
     public String getDesignation() {
         return designation;
     }
 
-    @Override
+
     public void setDesignation(String designation) {
         this.designation = designation;
     }
 
-    public String groupName() {
-        return groupName;
+    public String bandName() {
+        return bandName;
     }
 
-    public void setGroupNameName(String groupName) {
-        this.groupName = groupName;
+    public void setBandNameName(String bandName) {
+        this.bandName = bandName;
     }
 
     private void learn(){
@@ -51,9 +51,12 @@ public class Dancer extends Person{
 
     }
 
-    private void dancing(){
+    private void singing(){
 
     }
 
+    private void playGuitar(){
+
+    }
 
 }

@@ -36,7 +36,7 @@ public class Singer extends Person{
         return bandName;
     }
 
-    public void setBandNameName(String bandName) {
+    public void setBandName(String bandName) {
         this.bandName = bandName;
     }
 

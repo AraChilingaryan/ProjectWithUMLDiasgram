@@ -1,4 +1,5 @@
 package com.beyond.person.core.service.interfaces;
 
-public class ProgrammerAction {
+public interface ProgrammerAction extends BasePersonAction{
+    void coding();
 }

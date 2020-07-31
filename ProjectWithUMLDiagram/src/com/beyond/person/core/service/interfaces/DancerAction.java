@@ -1,4 +1,5 @@
 package com.beyond.person.core.service.interfaces;
 
-public class DancerAction {
+public interface DancerAction extends BasePersonAction{
+    void dancing();
 }

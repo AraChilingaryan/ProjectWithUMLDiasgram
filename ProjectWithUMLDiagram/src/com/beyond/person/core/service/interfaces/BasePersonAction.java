@@ -1,4 +1,16 @@
 package com.beyond.person.core.service.interfaces;
 
-public class BasePersonAction {
+import com.beyond.person.core.model.BasePerson;
+
+public interface BasePersonAction {
+    /**
+     *method for everyone
+     */
+    default void walk(BasePerson person){
+        System.out.println(person.getName() + " is walking");
+    }
+
+    void eat();
+    void learn();
+
 }

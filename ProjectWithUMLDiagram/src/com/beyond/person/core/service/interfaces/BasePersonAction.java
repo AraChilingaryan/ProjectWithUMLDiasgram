@@ -6,11 +6,10 @@ public interface BasePersonAction {
     /**
      *method for everyone
      */
-    default void walk(BasePerson person){
-        System.out.println(person.getName() + " is walking");
-    }
 
+    void walk();
     void eat();
     void learn();
+    void all();
 
 }

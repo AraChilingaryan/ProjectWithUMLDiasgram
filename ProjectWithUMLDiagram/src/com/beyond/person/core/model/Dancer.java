@@ -1,8 +1,7 @@
 package com.beyond.person.core.model;
 
 import com.beyond.person.core.enums.DancerType;
-import com.beyond.person.core.enums.EngineerType;
-import com.sun.jdi.InvalidTypeException;
+import com.beyond.person.core.exceptions.InvalidDesignationException;
 
 public class Dancer extends BasePerson{
     private String groupName;
@@ -17,15 +16,14 @@ public class Dancer extends BasePerson{
         this.groupName = groupName;
     }
 
-    public void setDesignation(String designation){
-        if(designation.equalsIgnoreCase(String.valueOf(DancerType.CONTEMPORARY)) || designation.equalsIgnoreCase(String.valueOf(DancerType.LATINO))
+    /**
+     * setter for designation
+     */
+    public void setDesignation(String designation)  {
+        if (designation.equalsIgnoreCase(String.valueOf(DancerType.CONTEMPORARY)) || designation.equalsIgnoreCase(String.valueOf(DancerType.LATINO))
                 || designation.equalsIgnoreCase(String.valueOf(DancerType.TRADITIONAL_ARMENIAN)))
             this.designation = designation;
-        else try {
-            throw new InvalidTypeException();
-        } catch (InvalidTypeException e) {
-            e.printStackTrace();
-        }
+        else  throw new InvalidDesignationException("Incorrect type of dancer");
     }
 
     /**

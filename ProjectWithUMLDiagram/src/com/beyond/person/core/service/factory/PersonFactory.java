@@ -17,16 +17,16 @@ public class PersonFactory {
     public static BasePersonAction getPersonType(BasePerson person) {
         if (person instanceof Dancer) {
             Dancer dancer = (Dancer)person;
-            return new DancerImpl(dancer.getName(), dancer.getDesignation(), dancer.getGroupName());
+            return new DancerImpl(dancer.getName(),dancer.getLastName(), dancer.getGroupName(), dancer.getDesignation());
 
         } else if (person instanceof Singer) {
             Singer singer = (Singer) person;
-            return new SingerImpl(singer.getName(), singer.getDesignation(), singer.getBandName());
+            return new SingerImpl(singer.getName(),singer.getLastName(), singer.getBandName(), singer.getDesignation());
 
 
         } else if (person instanceof Programmer) {
             Programmer programmer = (Programmer) person;
-            return new ProgrammerImpl(programmer.getName(), programmer.getDesignation(), programmer.getCompanyName());
+            return new ProgrammerImpl(programmer.getName(),programmer.getLastName(), programmer.getCompanyName(),programmer.getDesignation());
 
         }
 

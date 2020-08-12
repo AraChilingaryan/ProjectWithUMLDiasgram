@@ -1,8 +1,7 @@
 package com.beyond.person.core.model;
 
-import com.beyond.person.core.enums.DancerType;
 import com.beyond.person.core.enums.SingerType;
-import com.sun.jdi.InvalidTypeException;
+import com.beyond.person.core.exceptions.InvalidDesignationException;
 
 public class Singer extends BasePerson{
     private String bandName;
@@ -11,28 +10,28 @@ public class Singer extends BasePerson{
     /**
      *constructor for Singer
      */
-    public Singer(String name, String lastName,String designation, String bandName) {
+    public Singer(String name, String lastName, String bandName, String designation) {
         super(name, lastName);
         this.bandName = bandName;
         this.designation = designation;
     }
 
-    public void setDesignation(String designation){
+    /**
+     * setter for designation
+     */
+    public void setDesignation(String designation)  {
         if(designation.equalsIgnoreCase(String.valueOf(SingerType.JAZZ)) || designation.equalsIgnoreCase(String.valueOf(SingerType.POP))
                 || designation.equalsIgnoreCase(String.valueOf(SingerType.ROCK)))
             this.designation = designation;
-        else try {
-            throw new InvalidTypeException();
-        } catch (InvalidTypeException e) {
-            e.printStackTrace();
+        else
+            throw new InvalidDesignationException("Incorrect type of singer");
         }
-    }
     /**
      *getter for Singer
      */
     public String getBandName() {
         return bandName;
     }
-    public String getSIngerType(){ return singerType;}
+    public String getSingerType(){ return singerType;}
 
 }

@@ -1,7 +1,7 @@
 package com.beyond.person.core.model;
 
 import com.beyond.person.core.enums.Gender;
-import com.beyond.person.core.exceptoons.*;
+import com.beyond.person.core.exceptions.*;
 import com.beyond.person.core.helper.Help;
 
 public class BasePerson {
@@ -19,15 +19,12 @@ public class BasePerson {
      *
      */
     public BasePerson(String name, String lastName){
-        try {
-            if (name.length() > 0 && name.length() < 255 && (Help.checkAlphabet(name)) && (Help.checkAlphabet(lastName))) {
+            if (name.length() > 0 && name.length() < 255 && 0 < lastName.length() && lastName.length() < 255 && (Help.checkAlphabet(name)) && (Help.checkAlphabet(lastName))) {
                 this.name = name;
                 this.lastName = lastName;
-            }else throw  new InvalidFieldException();
-        } catch (InvalidFieldException e){
-            e.getMessage();
+            }else throw  new InvalidFieldException("Incorrect name or lastName");
         }
-    }
+
     /**
      *
      getters and setters for BasePerson
@@ -39,13 +36,9 @@ public class BasePerson {
 
 
     public void setDesignation(String designation) {
-        try {
             if (0 < designation.length() && designation.length() < 255)
                 this.designation = designation;
-            else throw new InvalidDesignationException();
-        }catch (InvalidDesignationException e){
-            e.getMessage();
-        }
+            else throw new InvalidDesignationException("Incorrect type of designation");
     }
 
     public String getDesignation() {
@@ -53,28 +46,22 @@ public class BasePerson {
     }
 
     public void setAge(String age) {
-        try{
-            if(Integer.parseInt(age) > 0 && Integer.parseInt(age) < 100) {
+            if(Integer.parseInt(age) > 0 && Integer.parseInt(age) < 100)
                 this.age = age;
-            }else throw new InvalidAgeException();
-        }catch (InvalidAgeException e){
-            e.getMessage();
-        }
+            else throw new InvalidAgeException("Incorrect age");
     }
+
 
     public int getAge() {
         return Integer.parseInt(age);
     }
 
     public void setGender(String gender) {
-        try{
-            if(gender.equalsIgnoreCase(String.valueOf(Gender.FEMALE)) || gender.equalsIgnoreCase(String.valueOf(Gender.MALE)) )
+        if(gender.equalsIgnoreCase(String.valueOf(Gender.FEMALE)) || gender.equalsIgnoreCase(String.valueOf(Gender.MALE)) )
                 this.gender = gender;
-            else throw new InvalidGenderException();
-        }catch (InvalidGenderException e){
-            e.getMessage();
+            else throw new InvalidGenderException("Incorrect Gender");
         }
-    }
+
 
     public String  getGender() {
         return gender;
@@ -83,13 +70,9 @@ public class BasePerson {
 
 
     public void setEmail(String email) {
-        try {
-            if (Help.isEmailCorrect(email)){
+            if (Help.isEmailCorrect(email))
                 this.email = email;
-            } else throw new InvalidEMailException();
-        }catch(InvalidEMailException e){
-            e.getMessage();
-        }
+             else throw new InvalidEMailException("Incorrect email");
     }
 
     public String getEmail() {
@@ -99,15 +82,12 @@ public class BasePerson {
 
 
     public void setNickName(String nickName) {
-        try {
             if(0 < nickName.length() && nickName.length() < 255) {
                 this.nickName = nickName;
             }
-            else throw new InvalidNickNameException();
-        }catch (InvalidNickNameException e){
-            e.getMessage();
-        }
+            else throw new InvalidNickNameException("Incorrect nickname");
     }
+
 
     public String getNickName() {
         return nickName;

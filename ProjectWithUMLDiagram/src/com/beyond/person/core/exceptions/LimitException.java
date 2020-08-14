@@ -1,8 +1,9 @@
 package com.beyond.person.core.exceptions;
 
-public class LimitException extends InvalidException{
+public class LimitException extends BaseException {
 
-    public LimitException(String message) {
-        super(message);
+    @Override
+    protected void getInfo() {
+        System.out.println("You will be fat : be careful");
     }
 }

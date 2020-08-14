@@ -1,7 +1,9 @@
 package com.beyond.person.core.exceptions;
 
-public class InvalidGenderException extends RuntimeException{
-    public InvalidGenderException(String exception) {
-        super(exception);
+public class InvalidGenderException extends BaseException {
+
+    @Override
+    protected void getInfo() {
+        System.out.println("Incorrect gender : be careful");
     }
 }

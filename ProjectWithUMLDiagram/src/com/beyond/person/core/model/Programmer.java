@@ -1,7 +1,8 @@
 package com.beyond.person.core.model;
 
-import com.beyond.person.core.enums.EngineerType;
+import com.beyond.person.core.enumaration.EngineerType;
 import com.beyond.person.core.exceptions.InvalidDesignationException;
+import com.beyond.person.core.exceptions.ValidationException;
 
 public class Programmer extends BasePerson{
     private String companyName;
@@ -25,7 +26,7 @@ public class Programmer extends BasePerson{
                 || designation.equalsIgnoreCase(String.valueOf(EngineerType.HARDWARE)))
             this.designation = designation;
         else {
-            throw new InvalidDesignationException("incorrect type of programmer");
+            throw new ValidationException(new InvalidDesignationException());
         }
     }
 

@@ -1,7 +1,11 @@
 package com.beyond.person.core.exceptions;
 
-public class InvalidDesignationException extends InvalidException{
-    public InvalidDesignationException(String exception) {
-        super(exception);
+import com.beyond.person.core.model.BasePerson;
+
+public class InvalidDesignationException extends BaseException {
+
+    @Override
+    protected void getInfo() {
+        System.out.println("Incorrect designation : be careful");
     }
 }

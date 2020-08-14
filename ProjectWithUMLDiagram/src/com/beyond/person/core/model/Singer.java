@@ -1,7 +1,8 @@
 package com.beyond.person.core.model;
 
-import com.beyond.person.core.enums.SingerType;
+import com.beyond.person.core.enumaration.SingerType;
 import com.beyond.person.core.exceptions.InvalidDesignationException;
+import com.beyond.person.core.exceptions.ValidationException;
 
 public class Singer extends BasePerson{
     private String bandName;
@@ -24,7 +25,7 @@ public class Singer extends BasePerson{
                 || designation.equalsIgnoreCase(String.valueOf(SingerType.ROCK)))
             this.designation = designation;
         else
-            throw new InvalidDesignationException("Incorrect type of singer");
+            throw new ValidationException(new InvalidDesignationException());
         }
     /**
      *getter for Singer

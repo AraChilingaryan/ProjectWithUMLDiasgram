@@ -9,7 +9,7 @@ public class SetInputArguments  {
     private int choice;
     private int count = 0;
     private  int count1 = 0;
-    BasePerson person;
+    public  BasePerson person;
     private String designation;
 
     /**

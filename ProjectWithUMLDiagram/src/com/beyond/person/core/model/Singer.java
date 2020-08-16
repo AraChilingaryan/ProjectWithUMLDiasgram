@@ -6,7 +6,7 @@ import com.beyond.person.core.exceptions.ValidationException;
 
 public class Singer extends BasePerson{
     private String bandName;
-    protected String singerType;
+    private String singerType;
 
     /**
      *constructor for Singer

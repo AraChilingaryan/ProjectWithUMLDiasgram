@@ -6,13 +6,13 @@ import com.beyond.person.core.model.BasePerson;
 import com.beyond.person.core.model.Dancer;
 import com.beyond.person.core.model.Programmer;
 import com.beyond.person.core.model.Singer;
-import com.beyond.person.core.service.impl.DancerActionServiceServiceImpl;
-import com.beyond.person.core.service.impl.ProgrammerActionServiceServiceImpl;
-import com.beyond.person.core.service.impl.SingerActionServiceServiceImpl;
+import com.beyond.person.core.service.impl.DancerActionServiceImpl;
+import com.beyond.person.core.service.impl.ProgrammerActionServiceImpl;
+import com.beyond.person.core.service.impl.SingerActionServiceImpl;
 import com.beyond.person.core.service.BasePersonActionService;
 
 public class PersonFactory {
-    BasePersonActionService basePersonActionServiceImpl;
+    private BasePersonActionService basePersonActionServiceImpl;
 
 
     /**
@@ -21,16 +21,16 @@ public class PersonFactory {
     public BasePersonActionService getPersonType(BasePerson person) {
             if (person instanceof Dancer) {
                 Dancer dancer = (Dancer) person;
-                basePersonActionServiceImpl = new DancerActionServiceServiceImpl(dancer.getName(), dancer.getLastName(), dancer.getGroupName(), dancer.getDesignation());
+                basePersonActionServiceImpl = new DancerActionServiceImpl(dancer.getName(), dancer.getLastName(), dancer.getGroupName(), dancer.getDesignation());
 
             } else if (person instanceof Singer) {
                 Singer singer = (Singer) person;
-                basePersonActionServiceImpl =  new SingerActionServiceServiceImpl(singer.getName(), singer.getLastName(), singer.getBandName(), singer.getDesignation());
+                basePersonActionServiceImpl =  new SingerActionServiceImpl(singer.getName(), singer.getLastName(), singer.getBandName(), singer.getDesignation());
 
 
             } else if (person instanceof Programmer) {
                 Programmer programmer = (Programmer) person;
-                basePersonActionServiceImpl = new ProgrammerActionServiceServiceImpl(programmer.getName(), programmer.getLastName(), programmer.getCompanyName(), programmer.getDesignation());
+                basePersonActionServiceImpl = new ProgrammerActionServiceImpl(programmer.getName(), programmer.getLastName(), programmer.getCompanyName(), programmer.getDesignation());
 
             }
        try {

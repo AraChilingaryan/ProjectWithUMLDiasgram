@@ -1,6 +1,6 @@
 package com.beyond.person.core.service;
 
-public interface SingerActionServiceService extends BasePersonActionService {
+public interface SingerActionService extends BasePersonActionService {
     void singing();
     void playing();
 }

@@ -2,11 +2,11 @@ package com.beyond.person.core.service.impl;
 
 import com.beyond.person.core.enumaration.States;
 import com.beyond.person.core.model.Programmer;
-import com.beyond.person.core.service.ProgrammerActionServiceService;
+import com.beyond.person.core.service.ProgrammerActionService;
 
-public class ProgrammerActionServiceServiceImpl implements ProgrammerActionServiceService {
-    Programmer programmer;
-    States states = States.NONE;
+public class ProgrammerActionServiceImpl implements ProgrammerActionService {
+   private Programmer programmer;
+   private States states = States.NONE;
 
     /**
      * this method prints all methods in ProgrammerActionServiceServiceImpl
@@ -22,7 +22,7 @@ public class ProgrammerActionServiceServiceImpl implements ProgrammerActionServi
     /**
      *constructor for ProgrammerImpl
      */
-    public ProgrammerActionServiceServiceImpl(String name, String lastName, String companyName, String designation) {
+    public ProgrammerActionServiceImpl(String name, String lastName, String companyName, String designation) {
         programmer = new Programmer(name,lastName, companyName, designation);
     }
 

@@ -5,11 +5,12 @@ import com.beyond.person.core.helper.SetInputArguments;
 import com.beyond.person.core.helper.UserInputArguments;
 import com.beyond.person.core.model.BasePerson;
 
+
 import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
-        int count = 0;
+       int count = 0;
         BasePerson person;
         String input  = "";
 
@@ -35,6 +36,11 @@ public class Main {
                     e.getInfo();
                 }
             }
+
     }
+
 }
+
+
+
 

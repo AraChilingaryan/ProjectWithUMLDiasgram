@@ -4,17 +4,17 @@ import com.beyond.person.core.enumaration.States;
 import com.beyond.person.core.exceptions.LimitException;
 import com.beyond.person.core.exceptions.ValidationException;
 import com.beyond.person.core.model.Dancer;
-import com.beyond.person.core.service.DancerActionServiceService;
+import com.beyond.person.core.service.DancerActionService;
 
-public class DancerActionServiceServiceImpl implements DancerActionServiceService {
-    Dancer dancer;
-    States states = States.NONE;
-    int count = 0;
+public class DancerActionServiceImpl implements DancerActionService {
+    private Dancer dancer;
+    private States states = States.NONE;
+    private int count = 0;
 
     /**
      * constructor for DancerImpl
      */
-    public DancerActionServiceServiceImpl(String name, String lastName, String groupName, String designation) {
+    public DancerActionServiceImpl(String name, String lastName, String groupName, String designation) {
         dancer = new Dancer(name, lastName, groupName,designation);
     }
 

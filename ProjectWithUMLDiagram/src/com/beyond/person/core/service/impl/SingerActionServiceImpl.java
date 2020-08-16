@@ -2,17 +2,17 @@ package com.beyond.person.core.service.impl;
 
 import com.beyond.person.core.enumaration.States;
 import com.beyond.person.core.model.Singer;
-import com.beyond.person.core.service.SingerActionServiceService;
+import com.beyond.person.core.service.SingerActionService;
 
-public class SingerActionServiceServiceImpl implements SingerActionServiceService {
-    Singer singer;
-    States states = States.NONE;
-    States states1 = States.NONE;
+public class SingerActionServiceImpl implements SingerActionService {
+    private Singer singer;
+    private States states = States.NONE;
+    private States states1 = States.NONE;
 
     /**
     *constructor for SingerImpl
      */
-    public SingerActionServiceServiceImpl(String name, String lastName, String bandName, String designation) {
+    public SingerActionServiceImpl(String name, String lastName, String bandName, String designation) {
         singer = new Singer(name,lastName, bandName, designation);
     }
 

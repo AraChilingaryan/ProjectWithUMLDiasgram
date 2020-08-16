@@ -6,15 +6,15 @@ import com.beyond.person.core.model.Dancer;
 import com.beyond.person.core.model.Programmer;
 import com.beyond.person.core.model.Singer;
 import com.beyond.person.core.service.factory.PersonFactory;
-import com.beyond.person.core.service.impl.DancerActionServiceServiceImpl;
-import com.beyond.person.core.service.impl.ProgrammerActionServiceServiceImpl;
-import com.beyond.person.core.service.impl.SingerActionServiceServiceImpl;
+import com.beyond.person.core.service.impl.DancerActionServiceImpl;
+import com.beyond.person.core.service.impl.ProgrammerActionServiceImpl;
+import com.beyond.person.core.service.impl.SingerActionServiceImpl;
 
 import java.util.Scanner;
 
 public class UserInputArguments {
     Scanner scanner = new Scanner(System.in);
-    PersonFactory personFactory;
+    private PersonFactory personFactory;
 
     public void userInputs(int choice, String name, String lastName, String designation){
         switch(choice){
@@ -28,7 +28,7 @@ public class UserInputArguments {
                     e.getInfo();
                 }
                 personFactory = new PersonFactory();
-                DancerActionServiceServiceImpl dancerActionServiceImpl = (DancerActionServiceServiceImpl) personFactory.getPersonType(dancer);
+                DancerActionServiceImpl dancerActionServiceImpl = (DancerActionServiceImpl) personFactory.getPersonType(dancer);
                 dancerActionServiceImpl.printAllMethods();
 
                 break;
@@ -43,7 +43,7 @@ public class UserInputArguments {
                 }
 
                 personFactory = new PersonFactory();
-                SingerActionServiceServiceImpl singerActionServiceImpl = (SingerActionServiceServiceImpl)personFactory.getPersonType(singer);
+                SingerActionServiceImpl singerActionServiceImpl = (SingerActionServiceImpl)personFactory.getPersonType(singer);
                 singerActionServiceImpl.printAllMethods();
                 break;
             case 3:
@@ -56,7 +56,7 @@ public class UserInputArguments {
                     e.getInfo();
                 }
                 personFactory = new PersonFactory();
-                ProgrammerActionServiceServiceImpl programmerActionServiceImpl = (ProgrammerActionServiceServiceImpl) personFactory.getPersonType(programmer);
+                ProgrammerActionServiceImpl programmerActionServiceImpl = (ProgrammerActionServiceImpl) personFactory.getPersonType(programmer);
                 programmerActionServiceImpl.printAllMethods();
                 break;
         }

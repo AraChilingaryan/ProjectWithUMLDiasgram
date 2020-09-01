@@ -22,8 +22,8 @@ public class ProgrammerActionServiceImpl implements ProgrammerActionService {
     /**
      *constructor for ProgrammerImpl
      */
-    public ProgrammerActionServiceImpl(String name, String lastName, String companyName, String designation) {
-        programmer = new Programmer(name,lastName, companyName, designation);
+    public ProgrammerActionServiceImpl(String name, String lastName) {
+        programmer = new Programmer(name,lastName);
     }
 
     /**

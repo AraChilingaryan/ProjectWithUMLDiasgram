@@ -1,33 +1,29 @@
 package com.beyond.person.core.model;
 
 import com.beyond.person.core.enumaration.EngineerType;
-import com.beyond.person.core.exceptions.InvalidDesignationException;
-import com.beyond.person.core.exceptions.ValidationException;
+import com.beyond.person.core.exception.ValidationException;
 
 public class Programmer extends BasePerson{
     private String companyName;
-    private String engineerType;
+    private EngineerType engineerType;
 
 
     /**
      * constructor for programmer
      */
-    public Programmer(String name,String lastName, String companyName, String designation) {
+    public Programmer(String name,String lastName) {
         super(name, lastName);
-        this.companyName = companyName;
-        this.designation = designation;
     }
 
     /**
      * setter for designation
      */
-    public void setDesignation(String designation)  {
-        if (designation.equalsIgnoreCase(String.valueOf(EngineerType.DATA)) || designation.equalsIgnoreCase(String.valueOf(EngineerType.SOFTWARE))
-                || designation.equalsIgnoreCase(String.valueOf(EngineerType.HARDWARE)))
-            this.designation = designation;
-        else {
-            throw new ValidationException(new InvalidDesignationException());
-        }
+    public void setProgrammerType(int inputOfIndex)  {
+            this.engineerType = EngineerType.getById(inputOfIndex);
+    }
+
+    public void setCompanyName(String companyName)  {
+        this.companyName = companyName;
     }
 
     /**
@@ -39,6 +35,6 @@ public class Programmer extends BasePerson{
         return companyName;
     }
     public String getEngineerType(){
-        return engineerType;
+        return engineerType.toString();
     }
 }

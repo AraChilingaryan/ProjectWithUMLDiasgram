@@ -1,6 +1,7 @@
 package com.beyond.person.core.helper;
 
-import com.beyond.person.core.exceptions.ValidationException;
+import com.beyond.person.core.exception.InvalidTypeException;
+import com.beyond.person.core.exception.ValidationException;
 import com.beyond.person.core.model.BasePerson;
 import com.beyond.person.core.model.Dancer;
 import com.beyond.person.core.model.Programmer;
@@ -21,12 +22,7 @@ public class UserInputArguments {
             case 1:
                 System.out.println("write groupName");
                 String groupName = scanner.nextLine();
-                BasePerson dancer = new Dancer(name, lastName,designation,groupName);
-                try{
-                    dancer.setDesignation(designation);
-                }catch(ValidationException e){
-                    e.getInfo();
-                }
+                BasePerson dancer = new Dancer(name, lastName);
                 personFactory = new PersonFactory();
                 DancerActionServiceImpl dancerActionServiceImpl = (DancerActionServiceImpl) personFactory.getPersonType(dancer);
                 dancerActionServiceImpl.printAllMethods();
@@ -35,13 +31,7 @@ public class UserInputArguments {
             case 2:
                 System.out.println("write bandName");
                 String bandName = scanner.nextLine();
-                BasePerson singer = new Singer(name, lastName, bandName, designation);
-                try{
-                    singer.setDesignation(designation);
-                }catch(ValidationException e){
-                    e.getInfo();
-                }
-
+                BasePerson singer = new Singer(name, lastName);
                 personFactory = new PersonFactory();
                 SingerActionServiceImpl singerActionServiceImpl = (SingerActionServiceImpl)personFactory.getPersonType(singer);
                 singerActionServiceImpl.printAllMethods();
@@ -49,12 +39,7 @@ public class UserInputArguments {
             case 3:
                 System.out.println("write companyName");
                 String companyName = scanner.nextLine();
-                BasePerson programmer = new Programmer(name, lastName, companyName, designation);
-                try{
-                    programmer.setDesignation(designation);
-                }catch(ValidationException e){
-                    e.getInfo();
-                }
+                BasePerson programmer = new Programmer(name, lastName);
                 personFactory = new PersonFactory();
                 ProgrammerActionServiceImpl programmerActionServiceImpl = (ProgrammerActionServiceImpl) personFactory.getPersonType(programmer);
                 programmerActionServiceImpl.printAllMethods();

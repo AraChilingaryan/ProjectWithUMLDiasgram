@@ -1,30 +1,25 @@
 package com.beyond.person.core.model;
 
 import com.beyond.person.core.enumaration.DancerType;
-import com.beyond.person.core.exceptions.InvalidDesignationException;
-import com.beyond.person.core.exceptions.ValidationException;
+import com.beyond.person.core.exception.ValidationException;
 
 public class Dancer extends BasePerson{
     private String groupName;
-    private String danceType;
+    private DancerType dancerType;
 
     /**
      constructor for Dancer
      */
-    public Dancer(String name, String lastName,String designation, String groupName) {
+    public Dancer(String name, String lastName) {
         super(name, lastName);
-        this.designation = designation;
-        this.groupName = groupName;
     }
 
-    /**
-     * setter for designation
-     */
-    public void setDesignation(String designation)  {
-        if (designation.equalsIgnoreCase(String.valueOf(DancerType.CONTEMPORARY)) || designation.equalsIgnoreCase(String.valueOf(DancerType.LATINO))
-                || designation.equalsIgnoreCase(String.valueOf(DancerType.TRADITIONAL_ARMENIAN)))
-            this.designation = designation;
-        else  throw new ValidationException(new InvalidDesignationException());
+    public void setDancerType(int indexOfInput)  {
+        this.dancerType = DancerType.getById(indexOfInput);
+    }
+
+    public void setGroupName(String groupName)  {
+        this.groupName = groupName;
     }
 
     /**
@@ -33,7 +28,7 @@ public class Dancer extends BasePerson{
     public String getGroupName() {
         return groupName;
     }
-    public String getDanceType(){return danceType;}
+    public String getDanceType(){return dancerType.toString();}
 
 
 }

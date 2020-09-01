@@ -1,17 +1,19 @@
 package com.beyond.person.core.model;
 
+import com.beyond.person.core.enumaration.Designation;
 import com.beyond.person.core.enumaration.Gender;
-import com.beyond.person.core.exceptions.*;
+import com.beyond.person.core.exception.*;
 import com.beyond.person.core.helper.AssistingMethods;
 
 public class BasePerson {
     protected String name;
     protected String lastName;
-    protected String designation;
+    private   Designation designation;
     protected String age;
-    protected String gender;
     protected String email;
     protected String nickName;
+    protected Gender gender;
+    public static int ID = 0;
 
 
     /**
@@ -22,7 +24,8 @@ public class BasePerson {
             if (AssistingMethods.isNameAndLastNameValid(name, lastName)) {
                 this.name = name;
                 this.lastName = lastName;
-            }else throw  new ValidationException(new InvalidFieldException());
+                ID++;
+            }else throw  new ValidationException("input right name and lastName");
         }
 
     /**
@@ -36,59 +39,46 @@ public class BasePerson {
     /**
      * setter for Designation
      */
-    public void setDesignation(String designation) {
-            if (0 < designation.length() && designation.length() < 255)
-                this.designation = designation;
-            else throw new ValidationException(new InvalidDesignationException());
+    public void setDesignation(int indexOfInput) {
+       this.designation = Designation.getById(indexOfInput);
     }
 
     /**
      * getter for Designation
      */
-    public String getDesignation() {
+    public Designation getDesignation() {
         return designation;
     }
 
     /**
      * setter for Age
      */
-    public void setAge(String age) throws InvalidAgeException{
+    public void setAge(String age) {
             if(Integer.parseInt(age) > 0 && Integer.parseInt(age) < 100)
                 this.age = age;
-            else throw new ValidationException(new InvalidAgeException());
+            else throw new ValidationException("input age : from 1 to 99");
     }
 
-    /**
-     * getter for Age
-     */
+
     public int getAge() {
         return Integer.parseInt(age);
     }
 
-    /**
-     * setter for Gender
-     */
-    public void setGender(String gender) {
-        if(gender.equalsIgnoreCase(String.valueOf(Gender.FEMALE)) || gender.equalsIgnoreCase(String.valueOf(Gender.MALE)) )
-                this.gender = gender;
-            else throw new ValidationException(new InvalidGenderException());
-        }
 
-    /**
-     * getter for Gender
-     */
-    public String  getGender() {
+    public void setGender(int numberOfIndex) {
+        this.gender = Gender.getById(numberOfIndex);
+    }
+
+
+    public Gender  getGender() {
         return gender;
     }
 
 
-    /**
-     * setter for Email
-     */
     public void setEmail(String email) {
             if (AssistingMethods.isEmailValid(email))
                 this.email = email;
-             else throw new ValidationException(new InvalidEMailException());
+             else throw new ValidationException("Input right Email");
     }
 
     /**
@@ -106,7 +96,7 @@ public class BasePerson {
             if(0 < nickName.length() && nickName.length() < 255) {
                 this.nickName = nickName;
             }
-            else throw new ValidationException(new InvalidNickNameException());
+            else throw new ValidationException("Input right NickName");
     }
 
     /**
@@ -114,5 +104,8 @@ public class BasePerson {
      */
     public String getNickName() {
         return nickName;
+    }
+    public int getId(){
+        return ID;
     }
 }

@@ -4,5 +4,5 @@ public enum States {
     EATEN,
     LEARNT,
     WALKED,
-    NONE
+    NONE;
 }

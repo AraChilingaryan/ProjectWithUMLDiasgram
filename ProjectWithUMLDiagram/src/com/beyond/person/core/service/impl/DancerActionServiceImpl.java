@@ -1,8 +1,8 @@
 package com.beyond.person.core.service.impl;
 
 import com.beyond.person.core.enumaration.States;
-import com.beyond.person.core.exceptions.LimitException;
-import com.beyond.person.core.exceptions.ValidationException;
+import com.beyond.person.core.exception.LimitException;
+import com.beyond.person.core.exception.ValidationException;
 import com.beyond.person.core.model.Dancer;
 import com.beyond.person.core.service.DancerActionService;
 
@@ -14,8 +14,8 @@ public class DancerActionServiceImpl implements DancerActionService {
     /**
      * constructor for DancerImpl
      */
-    public DancerActionServiceImpl(String name, String lastName, String groupName, String designation) {
-        dancer = new Dancer(name, lastName, groupName,designation);
+    public DancerActionServiceImpl(String name, String lastName) {
+        dancer = new Dancer(name, lastName);
     }
 
     /**
@@ -46,7 +46,7 @@ public class DancerActionServiceImpl implements DancerActionService {
         count++;
         if(count == 3) states = States.EATEN;
         else if(count > 3){
-            throw new ValidationException(new LimitException());
+            throw new LimitException("You can't eat anymore");
         }
     }
 

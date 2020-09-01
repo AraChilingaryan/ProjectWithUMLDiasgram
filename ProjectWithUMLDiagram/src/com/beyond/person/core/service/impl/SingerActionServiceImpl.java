@@ -12,8 +12,8 @@ public class SingerActionServiceImpl implements SingerActionService {
     /**
     *constructor for SingerImpl
      */
-    public SingerActionServiceImpl(String name, String lastName, String bandName, String designation) {
-        singer = new Singer(name,lastName, bandName, designation);
+    public SingerActionServiceImpl(String name, String lastName) {
+        singer = new Singer(name,lastName);
     }
 
     /**

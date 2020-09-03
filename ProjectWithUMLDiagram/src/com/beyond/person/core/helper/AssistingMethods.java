@@ -16,7 +16,8 @@ public  class AssistingMethods {
     }
 
     public static boolean isEmailValid(String email) {
-        return email.matches("^(.+)@(.+)$");
+        final String regex = "^(.+)@(.+)$";
+        return email.matches(regex);
     }
 
     public static boolean isNameAndLastNameValid(String name, String lastName) {

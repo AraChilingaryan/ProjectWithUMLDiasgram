@@ -39,7 +39,7 @@ public class GetAllPerson implements GetMethodsInterface{
 
     public void remove(int id){
         listForRemovedElement.add(personsMapForRemove.entrySet().iterator().next().getValue());
-        personsMapForRemove.entrySet().removeIf(map -> map.getKey() == id);
+        personsMapForRemove.remove(id); //removeIf(map -> map.getKey() == id);
     }
 
     @Override
